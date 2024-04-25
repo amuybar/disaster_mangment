@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Disaster Management{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Welcome to Disaster Management</h2>
+        <p>Introduction to the application and its mission...</p>
+    </section>
+    <section>
+        <h2>Recent Disasters</h2>
+        <p>Display recent disasters or emergencies...</p>
+    </section>
+    <section>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="{% url 'report_disaster' %}">Report a Disaster</a></li>
+            <li><a href="{% url 'forum' %}">Visit the Forum</a></li>
+            <li><a href="{% url 'news' %}">Read the Latest News</a></li>
+        </ul>
+    </section>
+{% endblock %}

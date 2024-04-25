@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Report Disaster - Disaster Management{% endblock %}
+
+{% block content %}
+    <section>
+        <h2>Report a Disaster</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+            <label for="location">Location:</label><br>
+            <input type="text" id="location" name="location"><br>
+            <label for="type">Type:</label><br>
+            <select id="type" name="type">
+                <option value="Earthquake">Earthquake</option>
+                <option value="Flood">Flood</option>
+                <option value="Hurricane">Hurricane</option>
+                <option value="Wildfire">Wildfire</option>
+                <option value="Tornado">Tornado</option>
+                <option value="Other">Other</option>
+            </select><br>
+            <label for="severity">Severity:</label><br>
+            <select id="severity" name="severity">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+            <label for="image">Image:</label><br>
+            <input type="file" id="image" name="image"><br><br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+{% endblock %}
