@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block title %}View Topic - {{ topic.title }}{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'forum.css' %}">
+{% endblock %}    
+
+{% block content %}
+    <section>
+        <h2>{{ topic.title }}</h2>
+        <p>{{ topic.content }}</p>
+        <div class="footer-"><p>Created by: {{ topic.created_by }}</p>
+        <p>Created at: {{ topic.created_at }}</p></div>
+
+        <hr>
+
+        <h3>Replies</h3>
+        <ul>
+            {% for reply in replies %}
+                <li>
+                    <p>{{ reply.content }}</p>
+                    <p class="createdby">Created by: {{ reply.created_by }}</p>
+                    <p class="createdat">Created at: {{ reply.created_at }}</p>
+                </li>
+            {% empty %}
+                <li>No replies yet.</li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+
+        <h3>Add Reply</h3>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+{% endblock %}

@@ -3,15 +3,16 @@ from django.contrib.auth.decorators import login_required
 from .models import ForumCategory, ForumTopic, ForumReply
 from .forms import ForumTopicForm, ForumReplyForm
 
-# @login_required
+@login_required
 def forum(request):
-    categories = ForumCategory.objects.all()
+    categories = ForumCategory.objects.prefetch_related('forumtopic_set').all()
     return render(request, 'forum.html', {'categories': categories})
 
 
 
 
-# @login_required
+
+@login_required
 def create_topic(request):
     if request.method == 'POST':
         form = ForumTopicForm(request.POST)

@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
+{%load static%}
+{% block title %}Create New Topic - Disaster Management{% endblock %}
 
-{% block title %}Create Topic - Disaster Management{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'forum.css' %}">
+{% endblock %}
 
 {% block content %}
-    <section>
-        <h2>Create New Topic</h2>
-        <form method="post">
-            {% csrf_token %}
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title"><br>
-            <button type="submit">Create</button>
-        </form>
-    </section>
+    <h2>Create New Topic</h2>
+    <div class="form-container">  <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create Topic</button>
+      </form>
+    </div>
 {% endblock %}

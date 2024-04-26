@@ -10,6 +10,8 @@ urlpatterns = [
     path('reports/', include('reports.urls')),
     path('forum/', include('forum.urls')),
     path('news/', include('news.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 # Serve static files during development

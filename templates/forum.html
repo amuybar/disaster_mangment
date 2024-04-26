@@ -1,15 +1,29 @@
+
 {% extends 'base.html' %}
+{%load static%}
+
 
 {% block title %}Forum - Disaster Management{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'forum.css' %}">
+{% endblock %}
 
 {% block content %}
-    <section>
-        <h2>Forum</h2>
-        <ul>
-            {% for category in categories %}
-                <li>{{ category.title }}</li>
-            {% endfor %}
-        </ul>
-        <a href="{% url 'create_topic' %}">Create New Topic</a>
-    </section>
+<section class="container">
+    <h2>Forum</h2>
+    <a href="{% url 'create_topic' %}" class="create-button">Create New Topic</a>
+    {% for category in categories %}
+        <div class="forum-card">
+          
+                {% for topic in category.forumtopic_set.all %}
+                   <h2 >{{ topic.title }}</h2>
+                    <p>{{ topic.content }}</p>
+                    <p>Created by: {{ topic.created_by }}</p>
+                    <a href="{% url 'view_topic' topic.id %}">View Post</a>
+                {% endfor %}
+            
+        </div>
+    {% endfor %}
+</section>
+
 {% endblock %}
