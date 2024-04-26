@@ -5,14 +5,11 @@
 {% block content %}
     <section>
         <h2>Forum</h2>
-        {% for category in categories %}
-            <h3>{{ category.title }}</h3>
-            <ul>
-                {% for forum in forums|get:category %}
-                    <li>{{ forum.title }}</li>
-                {% endfor %}
-            </ul>
-        {% endfor %}
+        <ul>
+            {% for category in categories %}
+                <li>{{ category.title }}</li>
+            {% endfor %}
+        </ul>
         <a href="{% url 'create_topic' %}">Create New Topic</a>
     </section>
 {% endblock %}

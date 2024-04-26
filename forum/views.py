@@ -1,14 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import ForumCategory, ForumTopic, ForumReply
+from .forms import ForumTopicForm, ForumReplyForm
 
 # @login_required
 def forum(request):
     categories = ForumCategory.objects.all()
-    forums = {}
-    for category in categories:
-        forums[category] = category.forum_set.all()  # Assuming Forum model has a ForeignKey relationship with ForumCategory
-    return render(request, 'forum.html', {'categories': categories, 'forums': forums})
+    return render(request, 'forum.html', {'categories': categories})
+
 
 
 
