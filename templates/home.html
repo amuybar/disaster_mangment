@@ -1,22 +1,62 @@
 {% extends 'base.html' %}
+{%load static%}
 
 {% block title %}Home - Disaster Management{% endblock %}
 
 {% block content %}
-    <section>
-        <h2>Welcome to Disaster Management</h2>
-        <p>Introduction to the application and its mission...</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Welcome to Disaster Management</h2>
+            <p>Empowering communities to respond effectively to disasters.</p>
+            <a href="{% url 'report_disaster' %}" class="btn btn-primary">Report a Disaster</a>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'hero_image.jpg' %}" alt="Disaster Management Hero Image">
+        </div>
     </section>
-    <section>
-        <h2>Recent Disasters</h2>
-        <p>Display recent disasters or emergencies...</p>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="about-content">
+            <h2>About Us</h2>
+            <p>Disaster Management is a platform dedicated to providing resources and support for disaster preparedness, response, and recovery.</p>
+        </div>
+        <div class="about-image">
+            <img src="{% static 'about_image.jpg' %}" alt="About Us Image">
+        </div>
     </section>
-    <section>
-        <h2>Quick Links</h2>
-        <ul>
-            <li><a href="{% url 'report_disaster' %}">Report a Disaster</a></li>
-            <li><a href="{% url 'forum' %}">Visit the Forum</a></li>
-            <li><a href="{% url 'news' %}">Read the Latest News</a></li>
-        </ul>
+
+    <!-- Previous Disasters Section -->
+    <section class="previous-disasters">
+        <h2>Previous Disasters</h2>
+        <div class="disasters-grid">
+            <!-- Display previous disasters here -->
+            <div class="disaster-item">
+                <img src="{% static 'disaster1.jpg' %}" alt="Previous Disaster Image">
+                <h3>Disaster Name</h3>
+                <p>Description of the disaster...</p>
+            </div>
+            <div class="disaster-item">
+                <!-- Another disaster item -->
+            </div>
+            <!-- Add more disaster items as needed -->
+        </div>
     </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <h2>What People are Saying</h2>
+        <div class="review">
+            <img src="{% static 'reviewer1.jpg' %}" alt="Reviewer Image">
+            <blockquote>"This platform helped us immensely during a recent disaster. Highly recommended!"</blockquote>
+            <cite>John Doe</cite>
+        </div>
+        <div class="review">
+            <!-- Another review -->
+        </div>
+        <!-- Add more reviews as needed -->
+    </section>
+
+    
 {% endblock %}
