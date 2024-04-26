@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 
+{%load static%}
+
 {% block title %}Report Disaster - Disaster Management{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'report.css' %}">
+{% endblock %}
 
 {% block content %}
     <section>

@@ -3,6 +3,10 @@
 
 {% block title %}Home - Disaster Management{% endblock %}
 
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+{% endblock %}
+
 {% block content %}
     <!-- Hero Section -->
 <section class="hero" style=" background-image: url('static/images/adam-wilson-wCKzi8nDkw8-unsplash.jpg');">
@@ -36,7 +40,9 @@
                 <p>Description of the disaster...</p>
             </div>
             <div class="disaster-item">
-                <!-- Another disaster item -->
+                  <img src="{% static '/images/jonathan-ford-6ZgTEtvD16I-unsplash.jpg' %}" alt="Previous Disaster Image">
+                    <h3>Disaster Name</h3>
+                    <p>Description of the disaster...</p>
             </div>
             <!-- Add more disaster items as needed -->
         </div>
@@ -46,12 +52,12 @@
     <section class="reviews">
         <h2>What People are Saying</h2>
         <div class="review">
-            <img src="{% static '/images/hermes-rivera-R1_ibA4oXiI-unsplash.jpg' %}" alt="Reviewer Image">
             <blockquote>"This platform helped us immensely during a recent disaster. Highly recommended!"</blockquote>
             <cite>John Doe</cite>
         </div>
         <div class="review">
-            <!-- Another review -->
+            <blockquote>"This platform helped us immensely during a recent disaster. Highly recommended!"</blockquote>
+            <cite>John Doe</cite>
         </div>
         <!-- Add more reviews as needed -->
     </section>

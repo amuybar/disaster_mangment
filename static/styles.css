@@ -17,31 +17,72 @@ body {
     padding: 0 20px;
 }
 
-/* Header Styles */
 header {
     background-color: #333;
     color: #fff;
-    padding: 20px 0;
+    padding: 10px;
+    
 }
 
-header h1 {
+h1 {
     margin: 0;
+    padding: 0;
+    font-size: 28px;
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
     margin: 0;
     padding: 0;
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+    background-color: #5c5b5b;
+    box-shadow: rgba(78, 77, 77, 0.7);
+    padding: 10px;
+    border-radius: 12px;
+    border:  1px solid #333131;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* User Authentication Styles */
+nav ul:nth-child(2) {
+    float: right;
+}
+
+nav ul:nth-child(2) li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+nav ul:nth-child(2) li:first-child {
+    margin-left: 0;
+}
+
+nav ul:nth-child(2) li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+nav ul:nth-child(2) li a:hover {
+    background-color: #555;
 }
 
 .hero {
@@ -87,8 +128,8 @@ nav ul li a {
 }
 
 .about-image img {
-    max-width: 100%;
-    height: auto;
+    max-width: 400px;
+    height: 400px;
 }
 
 /* Previous Disasters Section Styles */
@@ -109,16 +150,13 @@ nav ul li a {
 }
 
 .disaster-item img {
-    max-width: 100%;
-    height: auto;
+    max-width: 400px;
+    height: 400px;
 }
 
 /* Reviews Section Styles */
 .reviews {
     padding: 50px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .review {
