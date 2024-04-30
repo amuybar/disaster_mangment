@@ -1,60 +1,67 @@
-/* report_disaster.css */
+/* Base styles */
 
-/* Section Styles */
-section {
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 60%;
-  background-color: #f9f9f9;
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Form Styles */
+.section {
+  padding: 20px;
+  max-width: 700px; /* Adjust as needed */
+  margin: 0 auto;
+}
+
 h2 {
-  font-size: 24px;
+  text-align: center;
   margin-bottom: 20px;
 }
 
+/* Form styles */
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
 label {
+  width: 100%; /* Adjust based on your layout */
   font-weight: bold;
 }
 
 input[type="text"],
+input[type="file"],
 select,
 textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  width: 100%; /* Adjust based on your layout */
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
 textarea {
-  resize: vertical;
-}
-
-input[type="file"] {
-  margin-top: 10px;
+  resize: vertical; /* Allow resizing textarea */
 }
 
 button[type="submit"] {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #007bff;
+  color: #fff;
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   cursor: pointer;
+  margin-top: 10px; /* Adjust for spacing */
 }
 
-button[type="submit"]:hover {
-  background-color: #45a049;
-}
+/* Responsive adjustments */
 
-@media screen and(max-width: 768px) {
-  section{
-    width: 90%;
+@media (max-width: 768px) {
+  .section {
+   width: 100%; /* Form expands to full width on smaller screens */
   }
-  
+
+  label {
+    width: auto; /* Labels adjust to content width */
+  }
 }

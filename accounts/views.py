@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import CustomUserCreationForm
+from forum.models import ForumTopic, ForumReply
+
 
 def register(request):
     if request.method == 'POST':
@@ -35,8 +37,13 @@ def user_logout(request):
     return redirect('home')
 
 
+# def profile(request):
+#     user = request.user
+#     return render(request, 'profile.html', {'user': user})
+
+
 def profile(request):
     user = request.user
-    return render(request, 'profile.html', {'user': user})
-
-
+    posts = ForumTopic.objects.filter(created_by=user)
+    comments = ForumReply.objects.filter(created_by=user)
+    return render(request, 'profile.html', {'user': user, 'posts': posts, 'comments': comments})

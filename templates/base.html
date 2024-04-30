@@ -1,46 +1,76 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Disaster Management{% endblock %}</title>
-  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
-  {% block css %}{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+
+    {% block css %}{% endblock %}
 </head>
-<body>
-    <header>
-        <h1>Disaster Management</h1>
-        <nav>
+<body> 
+    {% block header %}
+    {% endblock %}
+   
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+<footer>
+    <div class="footer-links">
+        <div class="footer-column">
+            <h3>Explore</h3>
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'report_disaster' %}">Report Disaster</a></li>
-                <li><a href="{% url 'forum' %}">Forum</a></li>
-                <li><a href="{% url 'news' %}">News</a></li>
-                
-            
-            {% if user.is_authenticated %}
-            
-                <li><a href="{% url 'profile' %}">Profile</a></li>
-                <li><a href="{% url 'logout' %}">Logout</a></li>
-            
-            {% else %}
-            
-                <li><a href="{% url 'login' %}">Login</a></li>
-                <li><a href="{% url 'signup' %}">Register</a></li>
-
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Safe Zones</a></li>
+                <li><a href="#">Volunteer</a></li>
+                <li><a href="#">Donate</a></li>
             </ul>
-            {% endif %}
-           
+        </div>
+        <div class="footer-column">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="#">Emergency Preparedness</a></li>
+                <li><a href="#">Disaster Relief Programs</a></li>
+                <li><a href="#">Community Support</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="actual-footer">
+        <!-- Your actual footer content goes here -->
+        <p>&copy; 2024 Disaster Management. All rights reserved.</p>
+    </div>
+</footer>
 
-        </nav>
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2024 Disaster Management</p>
-    </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const closebtn = document.querySelector('.close-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        closebtn.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+        });
+    });
+</script>
+
 </body>
 </html>

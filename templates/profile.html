@@ -1,14 +1,119 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'profile.css' %}">
 </head>
 <body>
-    <h1>User Profile</h1>
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <!-- Add more profile information as needed -->
+    <div class="profile-container">
+        <div class="profile-header">
+            <!-- Use user initials as profile picture -->
+            <div class="profile-picture">UA</div>
+            <!-- Display user details -->
+            <div class="user-details">
+                <h1>User Profile</h1>
+                <p><strong>Username:</strong> {{ user.username }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <!-- Add more profile information as needed -->
+            </div>
+            <div class="logout-btn">
+                <a href="{% url 'logout' %}">Logout</a>
+            </div>
+            <div class="back-btn">
+                <a href="/">Back</a>
+            </div>
+        </div>
+        <!-- User activities tabs -->
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'MyPosts')">Posts</button>
+            <button class="tablinks" onclick="openTab(event, 'MyComments')">Comments</button>
+            <button class="tablinks" onclick="openTab(event, 'Notifications')">Notifications</button>
+            <button class="tablinks" onclick="openTab(event, 'Volunteer')">Volunteer</button>
+            <!-- Add more tabs as needed -->
+        </div>
+        {% comment %} user  post tab section {% endcomment %}
+        <div id="MyPosts" class="tabcontent"style="display: block;">
+            <h3>Posts</h3>
+            <ul class="post-list">
+              {% for post in posts %}
+                <li class="post-item">
+                  <div class="post-header">
+                    <h4>{{ post.title }}</h4>
+                    <div class="post-actions">
+                      
+                      <button class="btn btn-primary edit-btn" >Edit</button>
+                      <button class="btn btn-danger delete-btn" data-post-id="{{ post.pk }}">Delete</button>
+                    </div>
+                  </div>
+                  <p class="post-content">{{ post.content }}</p>
+                  <div class="post-details">
+                    <span class="post-views">
+                      <i class="fas fa-eye"></i> {{ post.views_count }} Views
+                    </span>
+                    <span class="post-responses">
+                      <i class="fas fa-comments"></i> {{ post.response_count }} Responses
+                    </span>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+        </div>
+          {% comment %} User Comments section {% endcomment %}
+        <div id="MyComments" class="tabcontent">
+            <h3>Comments</h3>
+            <ul class="comment-list">
+              {% for comment in comments %}
+                <li class="comment-item">
+                  <div class="comment-header">
+                    <h5 href='/' class="comment-post-title">{{ comment.topic }}</h5>
+                    <div class="comment-actions">
+                      
+                        <button class="btn btn-primary edit-btn" >Edit</button>
+                      <button class="btn btn-danger delete-btn" data-comment-id="{{ comment.pk }}">Delete</button>
+                    </div>
+                  </div>
+                  <p class="comment-content">{{ comment.content }}</p>
+                </li>
+              {% endfor %}
+            </ul>
+        </div>
+          
+
+        <div id="Notifications" class="tabcontent">
+            <!-- Display user notifications -->
+            <!-- You can fetch and display user notifications dynamically here -->
+        </div>
+        <div id="Volunteer" class="tabcontent">
+            <!-- Display user volunteer activities -->
+            <!-- You can fetch and display user volunteer activities dynamically here -->
+        </div>
+        
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            // Get all elements with class="tabcontent" and hide them
+            var tabcontent = document.getElementsByClassName("tabcontent");
+            for (var i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            var tablinks = document.getElementsByClassName("tablinks");
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        };
+
+        
+    </script>
 </body>
 </html>

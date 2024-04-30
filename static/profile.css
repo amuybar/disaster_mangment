@@ -1,0 +1,245 @@
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.user-details {
+  text-align: start;
+  margin-left: 20px;
+}
+.user-details h1 {
+  font-size: 19px;
+  color: rgb(0, 47, 78) !important;
+}
+.user-details p {
+  font-size: 17px;
+  color: rgb(1, 66, 109) !important;
+  cursor: pointer;
+}
+
+.logout-btn {
+  position: fixed;
+  right: 10px;
+  top: 20px;
+  background-color: #333;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.back-btn {
+  position: fixed;
+  left: 10px;
+  top: 20px;
+  background-color: #333;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+.logout-btn:hover {
+  background-color: #555;
+}
+.back-btn a{
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.logout-btn a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.tab {
+  margin-top: 20px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+}
+
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tab button:hover {
+  background-color: #f2f2f2;
+}
+
+.tab button.active {
+  background-color: #adabab;
+}
+
+.tabcontent {
+  display: none;
+  padding: 20px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+  .profile-container {
+    padding: 10px;
+  }
+
+  .profile-header {
+    margin-top: 50px;
+    align-items: flex-start;
+  }
+
+  .profile-picture {
+    margin-bottom: 10px;
+  }
+
+  .user-details {
+    margin-left: 0;
+  }
+
+  .logout-btn {
+    margin-left: 0;
+  }
+}
+/* my post */
+/* Basic styling */
+
+#MyPosts {
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.post-item {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.post-title {
+  margin: 0;
+  font-weight: bold;
+}
+
+.post-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.post-content {
+  margin-bottom: 10px;
+}
+
+.post-details {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+.post-details span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.fas {
+  font-size: 0.8rem;
+}
+/* comment */
+#MyComments {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-item {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.comment-post-title {
+  color: #80bef8; 
+  cursor: pointer;
+  font-style: italic;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 5px;
+}
+

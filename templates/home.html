@@ -7,10 +7,44 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
 {% endblock %}
 
+{% block header %}
+<header>
+    <h1 class="title">Disaster Management</h1>
+    <button class="menu-btn" aria-label="Menu">&#9776;</button>
+    <nav>
+      <div class="nav-links">
+        <div class="logo-container">
+            <img src="{% static '/images/logo.png' %}" alt="logo">
+          </div>
+        <button class="close-btn" aria-label="Close">&times;</button>
+        <div class="search-container">
+           <input type="text" class="search-input" placeholder="Search...">
+           <button class="search-icon" aria-label="Search">&#128269;</button>
+        </div>
+        <ul>
+          <li><i class="fas fa-home"></i><a href="{% url 'home' %}">Home</a></li>
+          <li><i class="fas fa-flag"></i><a href="{% url 'report_disaster' %}">Report Disaster</a></li>
+          <li><i class="fas fa-comments"></i><a href="{% url 'forum' %}">Forum</a></li>
+          <li><i class="fas fa-newspaper"></i><a href="{% url 'news' %}">News</a></li>
+          {% if user.is_authenticated %}
+          <li><i class="fas fa-user"></i><a href="{% url 'profile' %}">Profile</a></li>
+          <li><i class="fas fa-sign-out-alt"></i><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
+          <li><i class="fas fa-sign-in-alt"></i><a href="{% url 'login' %}">Login</a></li>
+          <li><i class="fas fa-user-plus"></i><a href="{% url 'signup' %}">Register</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+</header>
+
+{% endblock %}
+
+
 {% block content %}
     <!-- Hero Section -->
-<section class="hero" style=" background-image: url('static/images/adam-wilson-wCKzi8nDkw8-unsplash.jpg');">
-    <div class="hero-content">
+<section class="hero" style=" background-image: url('static/images/fire.jpeg');">
+    <div class="overlay">
         <h2>Welcome to Disaster Management</h2>
         <p>Empowering communities to respond effectively to disasters.</p>
         <a href="{% url 'report_disaster' %}" class="btn btn-primary">Report a Disaster</a>
@@ -22,31 +56,44 @@
     <section class="about">
         <div class="about-content">
             <h2>About Us</h2>
-            <p>Disaster Management is a platform dedicated to providing resources and support for disaster preparedness, response, and recovery.</p>
+            <p>Disaster Management is a platform dedicated to providing resources and support for disaster preparedness, response, and recovery. Our team consists of experienced professionals in disaster management, including emergency responders, healthcare workers, and community organizers.</p>
+            <p>We aim to empower individuals and communities to be better prepared for emergencies, educate them about disaster risk reduction strategies, and facilitate collaboration among stakeholders to improve disaster resilience.</p>
+            <button class="cta-btn">Learn More</button>
         </div>
         <div class="about-image">
-            <img src="{% static 'about_image.jpg' %}" alt="About Us Image">
+            <img src="{% static '/images/hermes-rivera-R1_ibA4oXiI-unsplash.jpg' %}" alt="About Us Image">
         </div>
     </section>
-
-    <!-- Previous Disasters Section -->
-    <section class="previous-disasters">
-        <h2>Previous Disasters</h2>
-        <div class="disasters-grid">
-            <!-- Display previous disasters here -->
-            <div class="disaster-item">
-                <img src="{% static '/images/jonathan-ford-6ZgTEtvD16I-unsplash.jpg' %}" alt="Previous Disaster Image">
-                <h3>Disaster Name</h3>
-                <p>Description of the disaster...</p>
-            </div>
-            <div class="disaster-item">
-                  <img src="{% static '/images/jonathan-ford-6ZgTEtvD16I-unsplash.jpg' %}" alt="Previous Disaster Image">
-                    <h3>Disaster Name</h3>
-                    <p>Description of the disaster...</p>
-            </div>
-            <!-- Add more disaster items as needed -->
+    <section class="safezone">
+        <div class="safezone-content">
+            <h2>Safe Zones</h2>
+            <p>Explore designated safe zones in your area to find refuge in case of a disaster. Safe zones are equipped with essential supplies, medical assistance, and emergency shelters to ensure your safety during challenging times.</p>
+            <p>Our platform provides detailed maps and information about safe zones, including their locations, facilities available, and evacuation routes. Stay informed and prepared by exploring the safe zones nearest to you.</p>
+            <button class="explore-btn">Explore</button>
+        </div>
+        <div class="safezone-image">
+            <img src="{% static '/images/hermes-rivera-R1_ibA4oXiI-unsplash.jpg' %}" alt="About Us Image">
         </div>
     </section>
+    <section class="volunteer">
+        <div class="volunteer-content">
+            <h2>Volunteer</h2>
+            <p>Join our team of dedicated volunteers and make a difference in your community. Whether you have experience in disaster response or are looking to lend a helping hand, we welcome individuals from all backgrounds to join us in our mission to support disaster preparedness and relief efforts.</p>
+            <button class="volunteer-btn">Join Us</button>
+        </div>
+        
+    </section>
+    
+    <section class="donate">
+        <div class="donate-content">
+            <h2>Donate</h2>
+            <p>Your generous donations help us provide essential resources, support, and assistance to those affected by disasters. Every contribution makes a meaningful impact and helps us better prepare, respond, and recover from emergencies.</p>
+            <button class="donate-btn">Donate Now</button>
+        </div>
+       
+    </section>
+    
+    
 
     <!-- Reviews Section -->
     <section class="reviews">
